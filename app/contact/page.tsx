@@ -22,7 +22,7 @@ export default function Contact()
           transition={{ duration: 1 }}
           className="text-4xl md:text-5xl font-bold max-w-3xl leading-tight z-10"
         >
-          Let's Connect & Grow Together
+          Let’s Connect & Grow Together
         </motion.h1>
 
         <motion.p
@@ -89,7 +89,7 @@ export default function Contact()
             name="interest"
             className="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#7F6BC9] md:col-span-2"
           >
-            <option value="">I'm interested in...</option>
+            <option value="">I’m interested in...</option>
             <option value="coaching">Coaching</option>
             <option value="advisory">Advisory</option>
             <option value="other">Other</option>

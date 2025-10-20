@@ -36,7 +36,7 @@ export default function Coaching()
           transition={{ duration: 1 }}
           className="text-4xl md:text-5xl font-bold max-w-3xl leading-tight z-10"
         >
-          Great leaders aren't born <br />they're grown.
+          Great leaders aren’t born <br />they’re grown.
         </motion.h1>
 
         <motion.p

@@ -142,7 +142,7 @@ export default function About()
             </h3>
 
             <p className="text-gray-600 text-sm">
-              Our AI-powered leadership tool — helping managers prepare smarter
+              Our AI-powered leadership tool is helping managers prepare smarter
               and grow faster.
             </p>
 
@@ -159,7 +159,7 @@ export default function About()
         <h2 className="text-3xl font-bold mb-4">Let’s Connect</h2>
 
         <p className="max-w-xl mx-auto mb-8 text-gray-100">
-          Whether you're growing leaders, transforming culture, or scaling your
+          Whether you’re growing leaders, transforming culture, or scaling your
           people strategy — we’d love to partner with you.
         </p>
 

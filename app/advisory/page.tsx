@@ -276,7 +276,7 @@ export default function Advisory()
         <h2 className="text-3xl font-bold mb-4">Partner with Us</h2>
 
         <p className="max-w-xl mx-auto mb-8 text-gray-100">
-          Let's build people systems that power sustainable business growth.
+          Let’s build people systems that power sustainable business growth.
           Book a consultation to get started.
         </p>
 
