@@ -15,6 +15,8 @@ export default function Navbar()
     ["Home", "/"],
     ["Coaching", "/coaching"],
     ["Advisory", "/advisory"],
+    ["OnTheGrow.AI", "/onTheGrow"],
+    ["GROWTH™ MODEL", "/growth"],
     ["About", "/about"],
     ["Resources", "/resource"],
     ["Contact", "/contact"],

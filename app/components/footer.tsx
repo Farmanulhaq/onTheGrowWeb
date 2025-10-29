@@ -1,171 +1,79 @@
-import Link from "next/link";
-import { FaLinkedin, FaInstagram, FaGlobe } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-export default function Footer() 
-{
-  
+export default function Footer() {
   return (
-
-    <footer className="relative bg-gradient-to-br from-[#1F1F1F] via-[#242424] to-[#2B2B2B] text-gray-300 py-14 px-6 md:px-16 text-sm overflow-hidden">
-
+    <footer className="relative bg-gradient-to-br from-[#1F1F1F] via-[#242424] to-[#2B2B2B] text-gray-300 py-14 px-8 md:px-16 overflow-hidden">
+      {/* Subtle overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#2F8E91]/10 via-transparent to-[#7F6BC9]/10 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto space-y-10">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* ================= Left Side ================= */}
+        <div className="space-y-4">
+          <h3 className="text-white text-lg font-semibold">OnTheGrow Leadership</h3>
+          <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+            Leadership | Advisory | AI Coaching <br />
+            Powered by the <span className="text-[#7F6BC9] font-medium">GROWTH™ Leadership Coaching Model</span> 
+            and <span className="text-[#2F8E91] font-medium">OnTheGrow.AI</span> — The Intelligent Coaching System and Growth Companion™.
+          </p>
+        </div>
 
-        {/* ================================================== Links Grid ================================================== */}
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center md:text-left">
-
+        {/* ================= Right Side ================= */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
           <div>
-
-            <h3 className="text-white font-semibold mb-3 text-base">Explore</h3>
-
+            <h4 className="text-white font-semibold mb-3">Company</h4>
             <ul className="space-y-2">
-              {[
-                ["Home", "/"],
-                ["About", "/about"],
-                ["Coaching", "/coaching"],
-                ["Advisory", "/advisory"],
-              ].map(([text, href]) => (
-                <li key={text}>
-                  <Link
-                    href={href}
-                    className="hover:text-[#7F6BC9] transition duration-200"
-                  >
-                    {text}
-                  </Link>
-                </li>
-              ))}
+              <li><a href="/mission" className="hover:text-[#7F6BC9] transition">Mission</a></li>
+              <li><a href="/values" className="hover:text-[#2F8E91] transition">Values</a></li>
+              <li><a href="/careers" className="hover:text-[#7F6BC9] transition">Careers</a></li>
             </ul>
-
           </div>
 
           <div>
-
-            <h3 className="text-white font-semibold mb-3 text-base">Resources</h3>
-            
+            <h4 className="text-white font-semibold mb-3">Legal</h4>
             <ul className="space-y-2">
-              {[
-                ["Resources", "/resource"],
-                ["Blog", "/blog"],
-                ["Privacy Policy", "/privacy"],
-                ["Terms of Service", "/terms"],
-              ].map(([text, href]) => (
-                <li key={text}>
-                  <Link
-                    href={href}
-                    className="hover:text-[#2F8E91] transition duration-200"
-                  >
-                    {text}
-                  </Link>
-                </li>
-              ))}
+              <li><a href="/privacy" className="hover:text-[#2F8E91] transition">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-[#7F6BC9] transition">Terms of Service</a></li>
             </ul>
-
           </div>
 
           <div>
-
-            <h3 className="text-white font-semibold mb-3 text-base">Sister Brands</h3>
-
+            <h4 className="text-white font-semibold mb-3">Connect</h4>
             <ul className="space-y-2">
-
               <li>
-
-                <a
-                  href="https://rekrewter.com"
-                  target="_blank"
-                  className="hover:text-[#7F6BC9] transition duration-200"
-                >
-                  REKREWTER
-                </a>
-
-              </li>
-
-              <li>
-
-                <a
-                  href="https://onthegrow.ai"
-                  target="_blank"
-                  className="hover:text-[#2F8E91] transition duration-200"
-                >
-                  OnTheGrow.AI
-                </a>
-
-              </li>
-
-            </ul>
-
-          </div>
-
-          <div>
-
-            <h3 className="text-white font-semibold mb-3 text-base">Connect</h3>
-
-            <ul className="flex gap-4 justify-center md:justify-start">
-
-              <li>
-
                 <a
                   href="https://linkedin.com"
                   target="_blank"
-                  className="text-gray-400 hover:text-[#2F8E91] transition"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-[#2F8E91] transition"
                 >
-                  <FaLinkedin size={20} />
+                  <FaLinkedin size={16} /> LinkedIn
                 </a>
-
               </li>
-
               <li>
-
                 <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  className="text-gray-400 hover:text-[#7F6BC9] transition"
+                  href="mailto:contact@onthegrowleadership.com"
+                  className="flex items-center gap-2 hover:text-[#7F6BC9] transition"
                 >
-                  <FaInstagram size={20} />
+                  <FaEnvelope size={16} /> Email
                 </a>
-
               </li>
-
               <li>
-
-                <a
-                  href="https://onthegrowleadership.com"
-                  target="_blank"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  <FaGlobe size={20} />
+                <a href="/media" className="hover:text-white transition">
+                  Media
                 </a>
-
               </li>
-
             </ul>
-
           </div>
-
         </div>
-
-        {/* ================================================== Divider ================================================== */}
-
-        <div className="border-t border-gray-700/40" />
-
-        {/* ================================================== Copyright Row ================================================== */}
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-
-          <p className="text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} <span className="text-white">OnTheGrow Leadership</span>. All rights reserved.
-          </p>
-
-          <p className="text-gray-500 text-xs">
-            Designed with <span className="text-[#7F6BC9]">growth</span> in mind.
-          </p>
-
-        </div>
-
       </div>
-      
+
+      {/* ================= Divider & Copyright ================= */}
+      <div className="relative z-10 mt-10 border-t border-gray-700/40 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <p>© {new Date().getFullYear()} OnTheGrow Leadership. All rights reserved.</p>
+        <p className="text-gray-500 text-xs">
+          Designed with <span className="text-[#7F6BC9]">growth</span> in mind.
+        </p>
+      </div>
     </footer>
   );
 }

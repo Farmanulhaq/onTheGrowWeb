@@ -5,7 +5,7 @@ import Link from "next/link";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-export default function Advisory() {
+export default function Growth() {
   return (
     <main className="bg-[#F1F2F4] text-gray-800 overflow-hidden">
       <Navbar />
@@ -29,7 +29,7 @@ export default function Advisory() {
           transition={{ duration: 1 }}
           className="text-4xl md:text-5xl font-bold max-w-3xl leading-tight z-10"
         >
-          Advisory that builds systems where people and performance scale together.
+          The practical framework leaders actually use.
         </motion.h1>
 
         <motion.p
@@ -38,7 +38,7 @@ export default function Advisory() {
           transition={{ delay: 0.3, duration: 1 }}
           className="text-lg md:text-xl mt-6 max-w-3xl text-gray-100"
         >
-          Hands-on operators who partner deeply from org design to change execution.
+          Six steps that turn insight into action, and action into sustained growth.
         </motion.p>
 
         <motion.div
@@ -48,15 +48,15 @@ export default function Advisory() {
           className="mt-10"
         >
           <Link
-            href="/contact"
+            href="#download"
             className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
           >
-            Talk to an Advisor
+            Download the GROWTH™ Model Guide
           </Link>
         </motion.div>
       </section>
 
-      {/* ================================================== FOCUS AREAS ================================================== */}
+      {/* ================================================== SIX ELEMENTS ================================================== */}
       <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#E2E3E7] to-[#DADDE2] text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -65,16 +65,17 @@ export default function Advisory() {
           viewport={{ once: true }}
           className="text-3xl font-bold text-[#2F8E91] mb-12"
         >
-          Our Focus Areas
+          The Six Elements of GROWTH™
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            ["Org & Operating Model Design", "Structure, roles, decision rights."],
-            ["Talent & Recruiting Systems", "Pipelines, process, and selection tools."],
-            ["Manager Effectiveness & Enablement", "Playbooks, training, and feedback loops."],
-            ["Culture, Engagement & Retention", "Build trust, standards, and shared success."],
-            ["People Analytics & Governance", "Metrics, cadences, and accountability."],
+            ["Goals", "Define outcomes that matter."],
+            ["Reflection", "Get honest about what’s true now."],
+            ["Opportunities", "Surface options and choose the best path."],
+            ["What’s Next", "Decide, commit, calendar."],
+            ["Tracking", "Measure and inspect what you expect."],
+            ["Habits", "Build rhythms that sustain performance."],
           ].map(([title, desc], i) => (
             <motion.div
               key={i}
@@ -84,46 +85,33 @@ export default function Advisory() {
               viewport={{ once: true }}
               className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9] hover:-translate-y-1 hover:scale-[1.02]"
             >
-              <h3 className="text-lg md:text-xl font-semibold text-[#7F6BC9] mb-3">{title}</h3>
+              <h3 className="text-xl font-semibold text-[#2F8E91] mb-3">{title}</h3>
               <p className="text-gray-700 text-sm md:text-base">{desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ================================================== HOW WE WORK ================================================== */}
+      {/* ================================================== WHY IT WORKS ================================================== */}
       <section className="py-20 px-6 md:px-16 text-center bg-gradient-to-br from-[#DADDE2] to-[#E5E8ED] relative">
-        <h2 className="text-3xl font-bold text-[#2F8E91] mb-12">How We Work</h2>
-
-        <div className="grid md:grid-cols-4 gap-10 max-w-6xl mx-auto">
-          {[
-            ["Assessment", "Understand your current systems, leadership, and culture foundation."],
-            ["Blueprint", "Design the structures, tools, and strategies to drive alignment."],
-            ["Pilot", "Launch small-scale implementations to test and refine the approach."],
-            ["Scale", "Expand proven practices company-wide for lasting transformation."],
-          ].map(([title, desc], i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md border-t-4 border-[#2F8E91] hover:-translate-y-2 hover:shadow-xl transition-all"
-            >
-              <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">{title}</h3>
-              <p className="text-gray-600 text-sm md:text-base">{desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-[#2F8E91] mb-8"
+        >
+          Why It Works
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-12 text-gray-700 text-lg font-medium"
+          className="max-w-3xl mx-auto text-lg text-gray-700"
         >
-          with measurable milestones and executive rhythm.
+          Simple, learnable, repeatable and designed for busy leaders in real conditions.
         </motion.p>
 
         <motion.p
@@ -131,25 +119,29 @@ export default function Advisory() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-8 text-gray-700 italic"
+          className="max-w-3xl mx-auto mt-6 text-gray-700"
         >
-          <span className="font-semibold text-[#2F8E91]">Principle:</span> Human at the core. Technology as a force multiplier.
+          Tools: Templates, facilitation guides, and <span className="font-semibold text-[#7F6BC9]">OnTheGrow.AI</span> prompts.
         </motion.p>
       </section>
 
       {/* ================================================== CTA ================================================== */}
-      <section className="py-24 px-6 md:px-16 text-center bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white">
-        <h2 className="text-3xl font-bold mb-4">Talk to an Advisor</h2>
+      <section
+        id="download"
+        className="py-24 px-6 md:px-16 text-center bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white"
+      >
+        <h2 className="text-3xl font-bold mb-4">Download the GROWTH™ Model Guide</h2>
 
         <p className="max-w-xl mx-auto mb-8 text-gray-100">
-          Let’s design people systems that drive alignment, growth, and sustainable performance.
+          Get the full framework, templates, and tools to implement the GROWTH™ system in your organization.
         </p>
 
         <a
-          href="https://calendly.com/yourusername/discovery-call"
+          href="/growth-model-guide.pdf"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
+          download
         >
-          Schedule a Call
+          Download Now
         </a>
       </section>
 
