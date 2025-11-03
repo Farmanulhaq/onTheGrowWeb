@@ -15,11 +15,11 @@ const container = {
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as any} },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as any } },
 };
 const subtleFloat = {
   animate: { y: [0, -10, 0] },
-  transition: { duration: 8, repeat: Infinity, ease: "easeInOut" as any},
+  transition: { duration: 8, repeat: Infinity, ease: "easeInOut" as any },
 };
 
 export default function Home() {
@@ -69,14 +69,15 @@ export default function Home() {
             className="mt-10 flex flex-wrap gap-4 justify-center"
           >
             <Link
-              href="/contact"
+              href="https://calendly.com/yourusername/discovery-call"
+              target="_blank"
               className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
             >
               Book a Discovery Call
             </Link>
 
             <Link
-              href="/growth-model"
+              href="/growth"
               className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7F6BC9] transition shadow-md hover:-translate-y-1 transform-gpu"
             >
               Explore the GROWTH™ Model
@@ -162,7 +163,7 @@ export default function Home() {
               title: "OnTheGrow.AI",
               desc: "An intelligent coaching companion that accelerates learning never replacing the human.",
             },
-          ].map((svc, i) => (
+          ].map((svc) => (
             <motion.article
               key={svc.title}
               variants={fadeUp}
@@ -172,7 +173,7 @@ export default function Home() {
               <p className="text-gray-600 mb-4">{svc.desc}</p>
               <div className="mt-4">
                 <Link
-                  href="/programs"
+                  href="/coaching"
                   className="inline-flex items-center text-[#2F8E91] font-semibold hover:underline"
                 >
                   See Programs & Packages →
@@ -250,7 +251,7 @@ export default function Home() {
             { title: "Ownership", desc: "No excuses. We deliver measurable outcomes." },
             { title: "Clarity", desc: "We simplify complexity and align action to priorities." },
             { title: "Growth", desc: "Humility, discipline, and habits that sustain success." },
-          ].map((val, i) => (
+          ].map((val) => (
             <motion.div
               key={val.title}
               variants={fadeUp}
@@ -263,55 +264,67 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* ========================= GROWTH MODEL TEASER ========================= */}
+      {/* ========================= TESTIMONIALS ========================= */}
       <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-br from-[#E2E3E7] to-[#DADDE2]"
+        className="py-24 px-6 md:px-16 text-center bg-gradient-to-br from-[#E5E8ED] to-[#DADDE2]"
       >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-6">
-          The GROWTH™ Leadership Coaching Model
+        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-12">
+          What Leaders Are Saying
         </motion.h2>
 
-        <motion.p variants={fadeUp} className="max-w-3xl mx-auto text-gray-700 mb-8">
-          A practical framework that turns insight into action: Goals • Reflection • Opportunities •
-          What’s Next • Tracking • Habits. Built for real leaders in the real world.
-        </motion.p>
-
-        <motion.div variants={fadeUp}>
-          <Link href="/growth-model" className="inline-flex items-center bg-white/90 text-[#2F8E91] px-6 py-3 rounded-full font-semibold shadow-sm hover:shadow-md transition">
-            Explore the GROWTH™ Model →
-          </Link>
-        </motion.div>
-      </motion.section>
-
-      {/* ========================= OnTheGrow.AI TEASER ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white"
-      >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-6">
-          Technology that multiplies transformation, not replaces it.
-        </motion.h2>
-
-        <motion.p variants={fadeUp} className="max-w-3xl mx-auto mb-8 text-gray-100 text-lg">
-          OnTheGrow.AI is your intelligent coaching companion: prompts, reflections, and tracking to
-          reinforce growth between sessions. Human coaching first. AI as a force multiplier.
-        </motion.p>
-
-        <motion.div variants={fadeUp}>
-          <Link
-            href="/onthegrow-ai"
-            className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
-          >
-            Meet OnTheGrow.AI
-          </Link>
-        </motion.div>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {[
+            {
+              quote:
+                "Simply brilliant. The most impactful leadership system I’ve ever experienced.",
+              author: "VP, Human Resources (Consumer Electronics)",
+            },
+            {
+              quote:
+                "The GROWTH™ framework transformed how I coach. My team now has clarity, accountability, and consistently stronger performance.",
+              author: "Partner, Sales Organization (PE-Backed Tech Company)",
+            },
+            {
+              quote:
+                "OnTheGrow training is practical, energizing, and real. I walked out knowing I could lead better that same day.",
+              author: "Territory Sales Manager (National Field Team)",
+            },
+            {
+              quote:
+                "OnTheGrow helped us build scalable leadership capability and stronger cross-functional execution. We’re moving faster — with more trust.",
+              author: "Senior Leader, Talent & Culture (PE-Backed Company)",
+            },
+            {
+              quote:
+                "Our managers finally have a repeatable way to coach. We’ve seen immediate improvements in decision-making, feedback, and accountability.",
+              author: "VP, Human Resources (Multi-Site Organization)",
+            },
+          ].map((t, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileHover={{ scale: 1.05, rotate: [-0.5, 0.5, 0], transition: { duration: 0.4 } }}
+              className={`relative p-8 rounded-2xl shadow-xl transition-all duration-300 border-t-4 border-[#7F6BC9] bg-white/90 backdrop-blur-sm ${
+                i === 0 ? "md:col-span-2 lg:col-span-3 bg-gradient-to-r from-[#7F6BC9]/10 to-[#2F8E91]/10" : ""
+              }`}
+            >
+              <motion.div
+                animate={{
+                  opacity: [0.9, 1, 0.9],
+                  y: [0, -4, 0],
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+              >
+                <p className="italic text-gray-700 text-lg mb-4 leading-relaxed">“{t.quote}”</p>
+                <p className="font-semibold text-[#2F8E91]">{t.author}</p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </motion.section>
 
       {/* ========================= RESULTS TEASER ========================= */}
@@ -349,14 +362,16 @@ export default function Home() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/contact"
+              href="https://calendly.com/yourusername/discovery-call"
+              target="_blank"
               className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
             >
               Book a Discovery Call
             </Link>
 
             <Link
-              href="/growth-guide"
+              href="/reources/GROWTH-Model.pdf"
+              download="GROWTH-Model.pdf"
               className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7F6BC9] transition shadow-md hover:-translate-y-1 transform-gpu"
             >
               Download the GROWTH™ Guide

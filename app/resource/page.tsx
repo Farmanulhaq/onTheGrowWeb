@@ -49,24 +49,28 @@ export default function Resource() {
             [
               "GROWTH™ Model Guide",
               "A step-by-step framework for turning insight into sustained growth.",
-              "/files/growth-model-guide.pdf",
+              "/resources/Growth-Model.pdf",
+              "Growth-Model.pdf",
             ],
             [
               "Coaching Conversation Prompts",
               "Structured prompts to help leaders guide meaningful, high-impact conversations.",
               "/files/coaching-prompts.pdf",
+              "Growth-Model.pdf",
             ],
             [
               "Leadership Habits Tracker",
               "A daily and weekly tracker to help leaders build sustainable growth habits.",
               "/files/leadership-habits-tracker.pdf",
+              "Growth-Model.pdf",
             ],
             [
               "Articles & Research",
               "Explore evidence-based insights on coaching ROI, AI in leadership, and manager effectiveness.",
               "/files/articles-research.pdf",
+              "Growth-Model.pdf",
             ],
-          ].map(([title, desc, link], i) => (
+          ].map(([title, desc, link, file], i) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 30 }}
@@ -81,7 +85,7 @@ export default function Resource() {
               <p className="text-gray-600 mb-4">{desc}</p>
               <a
                 href={link}
-                target="_blank"
+                download={file}
                 className="text-[#2F8E91] font-semibold hover:underline"
               >
                 Download →
@@ -116,8 +120,8 @@ export default function Resource() {
         </motion.p>
 
         <a
-          href="/files/growth-model-guide.pdf"
-          target="_blank"
+          href="/resources/GROWTH-Model.pdf"
+          download="GROWTH-Model.pdf"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3.5 rounded-full font-semibold hover:bg-[#F4F5F7] transition shadow-md"
         >
           Download Now

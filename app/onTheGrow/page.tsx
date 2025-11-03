@@ -48,7 +48,9 @@ export default function OnTheGrowAI() {
           className="mt-10"
         >
           <Link
-            href="/contact"
+            href="https://onthegrow.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
           >
             Request a Demo
@@ -156,7 +158,9 @@ export default function OnTheGrowAI() {
         </motion.p>
 
         <Link
-          href="/contact"
+          href="https://onthegrow.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
         >
           Request a Demo

@@ -109,7 +109,7 @@ export default function Contact() {
             type="submit"
             className="bg-[#7F6BC9] text-white font-semibold py-3 rounded-md hover:bg-[#6D5AC1] transition md:col-span-2"
           >
-            Book a Discovery Call
+            Let’s Connect
           </button>
         </form>
 
