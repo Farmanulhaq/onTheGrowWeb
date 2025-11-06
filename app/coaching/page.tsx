@@ -48,7 +48,7 @@ export default function Coaching() {
           className="mt-10"
         >
           <Link
-            href="https://calendly.com/yourusername/discovery-call"
+            href="https://calendly.com/liz-onthegrowleadership/30min"
             target="_blank"
             className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
           >
@@ -229,7 +229,7 @@ export default function Coaching() {
           Ready to grow your leadership impact?
         </motion.h2>
         <Link
-          href="https://calendly.com/yourusername/discovery-call"
+          href="https://calendly.com/liz-onthegrowleadership/30min"
           target="_blank"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
         >

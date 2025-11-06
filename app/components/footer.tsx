@@ -1,4 +1,4 @@
-import { FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -12,8 +12,10 @@ export default function Footer() {
           <h3 className="text-white text-lg font-semibold">OnTheGrow Leadership™</h3>
           <p className="text-gray-400 text-sm leading-relaxed max-w-md">
             Leadership | Advisory | AI Coaching <br />
-            Powered by the <span className="text-[#7F6BC9] font-medium">GROWTH™ Leadership Coaching Model </span> 
-            and <span className="text-[#2F8E91] font-medium">OnTheGrow.AI</span> — The Intelligent Coaching System and Growth Companion™.
+            Powered by the{" "}
+            <span className="text-[#7F6BC9] font-medium">GROWTH™ Leadership Coaching Model </span>
+            and{" "}
+            <span className="text-[#2F8E91] font-medium">OnTheGrow.AI</span> — The Intelligent Coaching System and Growth Companion™.
           </p>
 
           <p className="text-sm text-gray-400 italic">
@@ -49,7 +51,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3">Company</h4>
             <ul className="space-y-2">
               <li><a href="/about" className="hover:text-[#2F8E91] transition">About</a></li>
-              <li><a href="/resources" className="hover:text-[#7F6BC9] transition">Resources</a></li>
+              <li><a href="/resource" className="hover:text-[#7F6BC9] transition">Resources</a></li>
               <li><a href="/contact" className="hover:text-[#2F8E91] transition">Contact</a></li>
             </ul>
           </div>
@@ -57,6 +59,16 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Connect</h4>
             <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://facebook.com/OnTheGrowLeadership"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-[#1877F2] transition"
+                >
+                  <FaFacebook size={16} /> Facebook
+                </a>
+              </li>
               <li>
                 <a
                   href="https://linkedin.com"
@@ -69,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@onthegrowleadership.com"
+                  href="mailto:liz@onthegrowleadership.com"
                   className="flex items-center gap-2 hover:text-[#7F6BC9] transition"
                 >
                   <FaEnvelope size={16} /> Email
@@ -83,7 +95,8 @@ export default function Footer() {
       {/* ================= Divider & Legal ================= */}
       <div className="relative z-10 mt-10 border-t border-gray-700/40 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
         <p>
-          © {new Date().getFullYear()} OnTheGrow Leadership™. All rights reserved. <br className="md:hidden" />
+          © {new Date().getFullYear()} OnTheGrow Leadership™. All rights reserved.{" "}
+          <br className="md:hidden" />
           GROWTH™ Model and Growth Companion™ are trademarks of OnTheGrow Leadership.
         </p>
         <p className="text-gray-500">

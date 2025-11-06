@@ -69,7 +69,7 @@ export default function Home() {
             className="mt-10 flex flex-wrap gap-4 justify-center"
           >
             <Link
-              href="https://calendly.com/yourusername/discovery-call"
+              href="https://calendly.com/liz-onthegrowleadership/30min"
               target="_blank"
               className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
             >
@@ -362,7 +362,7 @@ export default function Home() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <Link
-              href="https://calendly.com/yourusername/discovery-call"
+              href="https://calendly.com/liz-onthegrowleadership/30min"
               target="_blank"
               className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
             >
@@ -370,7 +370,7 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/reources/GROWTH-Model.pdf"
+              href="/resources/GROWTH-Model.pdf"
               download="GROWTH-Model.pdf"
               className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7F6BC9] transition shadow-md hover:-translate-y-1 transform-gpu"
             >

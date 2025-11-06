@@ -5,6 +5,31 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Resource() {
+  const resources = [
+    {
+      title: "GROWTH™ Model Guide",
+      desc: "A step-by-step framework for turning insight into sustained growth.",
+      link: "/resources/Growth-Model.pdf",
+      file: "Growth-Model.pdf",
+      available: true,
+    },
+    {
+      title: "Coaching Conversation Prompts",
+      desc: "Structured prompts to help leaders guide meaningful, high-impact conversations.",
+      available: false,
+    },
+    {
+      title: "Leadership Habits Tracker",
+      desc: "A daily and weekly tracker to help leaders build sustainable growth habits.",
+      available: false,
+    },
+    {
+      title: "Articles & Research",
+      desc: "Explore evidence-based insights on coaching ROI, AI in leadership, and manager effectiveness.",
+      available: false,
+    },
+  ];
+
   return (
     <main className="bg-[#F1F2F4] text-gray-800 overflow-hidden">
       <Navbar />
@@ -45,51 +70,39 @@ export default function Resource() {
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {[
-            [
-              "GROWTH™ Model Guide",
-              "A step-by-step framework for turning insight into sustained growth.",
-              "/resources/Growth-Model.pdf",
-              "Growth-Model.pdf",
-            ],
-            [
-              "Coaching Conversation Prompts",
-              "Structured prompts to help leaders guide meaningful, high-impact conversations.",
-              "/files/coaching-prompts.pdf",
-              "Growth-Model.pdf",
-            ],
-            [
-              "Leadership Habits Tracker",
-              "A daily and weekly tracker to help leaders build sustainable growth habits.",
-              "/files/leadership-habits-tracker.pdf",
-              "Growth-Model.pdf",
-            ],
-            [
-              "Articles & Research",
-              "Explore evidence-based insights on coaching ROI, AI in leadership, and manager effectiveness.",
-              "/files/articles-research.pdf",
-              "Growth-Model.pdf",
-            ],
-          ].map(([title, desc, link, file], i) => (
+          {resources.map((res, i) => (
             <motion.div
-              key={title}
+              key={res.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9]"
+              className="relative p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9] overflow-hidden"
             >
               <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">
-                {title}
+                {res.title}
               </h3>
-              <p className="text-gray-600 mb-4">{desc}</p>
-              <a
-                href={link}
-                download={file}
-                className="text-[#2F8E91] font-semibold hover:underline"
-              >
-                Download →
-              </a>
+              <p className="text-gray-600 mb-6">{res.desc}</p>
+
+              {res.available ? (
+                <a
+                  href={res.link}
+                  download={res.file}
+                  className="text-[#2F8E91] font-semibold hover:underline"
+                >
+                  Download →
+                </a>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="inline-block bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white px-5 py-2 rounded-full font-medium shadow-md animate-pulse"
+                >
+                  Coming Soon ✨
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>

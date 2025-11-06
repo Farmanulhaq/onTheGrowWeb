@@ -166,7 +166,7 @@ export default function About() {
         </p>
 
         <a
-          href="https://calendly.com/yourusername/discovery-call"
+          href="https://calendly.com/liz-onthegrowleadership/30min"
           target="_blank"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
         >

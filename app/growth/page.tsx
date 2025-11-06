@@ -48,7 +48,7 @@ export default function Growth() {
           className="mt-10"
         >
           <Link
-            href="/reources/GROWTH-Model.pdf"
+            href="/resources/GROWTH-Model.pdf"
             download="GROWTH-Model.pdf"
             className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
           >
@@ -138,7 +138,7 @@ export default function Growth() {
         </p>
 
         <a
-          href="/reources/GROWTH-Model.pdf"
+          href="/resources/GROWTH-Model.pdf"
           download="GROWTH-Model.pdf"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
         >
