@@ -1,384 +1,437 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import { FaUsers, FaChartLine, FaLightbulb, FaRobot } from "react-icons/fa";
 
-/* --- Motion variants --- */
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, when: "beforeChildren" },
-  },
+// -------------------- Animations --------------------
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15, when: "beforeChildren" } },
 };
-const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as any } },
-};
-const subtleFloat = {
-  animate: { y: [0, -10, 0] },
-  transition: { duration: 8, repeat: Infinity, ease: "easeInOut" as any },
-};
+const fadeUp: Variants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
+const float: Variants = { animate: { y: [0, -10, 0] } };
 
 export default function Home() {
   return (
     <main className="bg-[#F1F2F4] text-gray-800 overflow-x-hidden">
       <Navbar />
 
-      {/* ========================= HERO ========================= */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 bg-gradient-to-br from-[#2F8E91] via-[#4A8FB5] to-[#7F6BC9] text-white overflow-hidden">
-        {/* decorative orbs */}
-        <motion.div
-          {...subtleFloat}
-          className="absolute top-24 left-8 w-56 h-56 bg-white/6 rounded-full blur-3xl pointer-events-none"
-        />
-        <motion.div
-          animate={{ x: [0, -20, 0], rotate: [0, 4, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-16 right-12 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"
-        />
+      {/* ================= HERO ================= */}
+<section className="relative flex flex-col md:flex-row items-center justify-center text-left min-h-screen px-6 md:px-70 pt-24 bg-gradient-to-br from-[#7F6BC9] via-[#8D9CF0] to-[#00FF7A] text-white overflow-hidden">
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30" />
+  {/* Left Column: Text */}
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    variants={container}
+    className="relative z-10 max-w-xl md:max-w-lg lg:max-w-xl px-4 md:px-0 md:mr-12 flex-shrink-0"
+  >
+    <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      Leadership That Lifts.™
+    </motion.h1>
+    <motion.p variants={fadeUp} className="text-lg sm:text-xl text-gray-100 mb-4">
+      Where <span className="text-white font-semibold">Grace, Grit & Growth™</span> create leaders people want to follow.
+    </motion.p>
+    <motion.p variants={fadeUp} className="text-base sm:text-lg text-gray-200 mb-6">
+      OnTheGrow Leadership transforms managers into coaches who elevate people, performance, and culture — with proven frameworks and AI-powered tools.
+    </motion.p>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={container}
-          className="relative z-10 max-w-4xl mx-auto flex flex-col items-center px-4"
-        >
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-[0_6px_22px_rgba(0,0,0,0.25)]"
-          >
-            Leadership that lift, where people thrive, results follow, and everyone wins.
-          </motion.h1>
+    <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mt-6">
+      <Link
+        href="https://calendly.com/liz-onthegrowleadership/30min"
+        target="_blank"
+        className="inline-flex items-center justify-center rounded-full px-6 py-3 bg-gradient-to-r from-[#7F6BC9] to-[#00FF7A] text-black font-semibold shadow-lg hover:scale-[1.02] transform-gpu transition"
+      >
+        Book a Strategy Call
+      </Link>
+      <Link
+        href="https://OnTheGrow.AI"
+        target="_blank"
+        className="inline-flex items-center justify-center rounded-full px-6 py-3 border border-white/20 text-white font-semibold hover:bg-white/5 transition"
+      >
+        Explore OnTheGrow.AI
+      </Link>
+    </motion.div>
+  </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-lg md:text-xl mt-6 max-w-2xl text-gray-100"
-          >
-            We develop bold, human leaders through coaching, advisory, and AI-enabled
-            development grounded in grit and grace.
-          </motion.p>
+  {/* Right Column: Illustration */}
+  <motion.div
+    variants={float}
+    animate="animate"
+    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+    className="mt-12 md:mt-0 flex-1 flex justify-center items-center"
+  >
+    <img
+      src="/home.svg" // replace with your chosen illustration
+      alt="Leadership and Coaching Illustration"
+      className="w-full max-w-md md:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
+    />
+  </motion.div>
+</section>
 
-          <motion.div
-            variants={fadeUp}
-            className="mt-10 flex flex-wrap gap-4 justify-center"
-          >
-            <Link
-              href="https://calendly.com/liz-onthegrowleadership/30min"
-              target="_blank"
-              className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
-            >
-              Book a Discovery Call
-            </Link>
 
-            <Link
-              href="/growth"
-              className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7F6BC9] transition shadow-md hover:-translate-y-1 transform-gpu"
-            >
-              Explore the GROWTH™ Model
-            </Link>
-          </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            className="mt-10 w-full max-w-3xl bg-white/10 backdrop-blur-sm rounded-full p-3 flex flex-col sm:flex-row gap-3 sm:gap-0 items-center justify-between text-sm md:text-base"
-          >
-            <motion.span
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-              className="px-3 text-gray-100/90"
-            >
-              Trusted by private-equity backed and growth-stage organizations
-            </motion.span>
+      {/* ========================= PROBLEM SECTION ========================= */}
+<motion.section
+  className="py-20 px-6 md:px-16 bg-[#0F0F0F] text-white"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={container}
+>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    
+    {/* Left Column: Text & Stats */}
+    <motion.div variants={fadeUp} className="space-y-6">
+      <h2 className="text-3xl md:text-4xl font-bold">Leadership has lost its way</h2>
+      <p className="text-gray-300 text-lg md:text-xl">
+        Results-only leaders break people. Nice-only leaders avoid truth. Both harm culture, retention, and profitability. 
+        People don’t leave companies — they leave managers. We fix that.
+      </p>
 
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="px-3 text-gray-100/90 border-l border-white/20"
-            >
-              Executive coaches & operators with real-world track records
-            </motion.span>
-
-            <motion.span
-              initial={{ opacity: 0, x: 8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="px-3 text-gray-100/90 border-l border-white/20"
-            >
-              AI-enabled leadership tools — human at the core
-            </motion.span>
-          </motion.div>
+      {/* Metrics */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+        <motion.div variants={fadeUp} className="p-6 bg-white/10 rounded-xl flex flex-col items-center justify-center text-center hover:bg-white/20 transition">
+          <div className="text-4xl mb-2">📉</div>
+          <div className="font-semibold text-xl">33.7%</div>
+          <div className="text-sm text-gray-300">Turnover</div>
         </motion.div>
-      </section>
-
-      {/* ========================= WHY OnTheGrow ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-br from-[#DADDE2] to-[#E5E8ED]"
-      >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-6">
-          Leadership has lost its way. We’re here to restore it.
-        </motion.h2>
-
-        <motion.p variants={fadeUp} className="max-w-3xl mx-auto text-gray-700 text-lg">
-          Too often, managers drive results but break spirits, or protect comfort and call it culture.
-          Both destroy potential. We help leaders balance grace and grit so teams feel seen, accountability
-          becomes empowerment, and growth becomes standard.
-        </motion.p>
-      </motion.section>
-
-      {/* ========================= WHAT WE DO ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-br from-[#E2E3E7] to-[#DADDE2]"
-      >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-12">
-          Coaching. Advisory. AI-Enabled Development.
-        </motion.h2>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              title: "Executive & Team Coaching",
-              desc: "Practical, high-trust coaching that builds courage, clarity, and consistent follow-through.",
-            },
-            {
-              title: "Advisory & Transformation",
-              desc: "Hands-on partnership to design orgs, fix systems, and scale healthy performance.",
-            },
-            {
-              title: "OnTheGrow.AI",
-              desc: "An intelligent coaching companion that accelerates learning never replacing the human.",
-            },
-          ].map((svc) => (
-            <motion.article
-              key={svc.title}
-              variants={fadeUp}
-              className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 border-t-4 border-[#2F8E91]"
-            >
-              <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">{svc.title}</h3>
-              <p className="text-gray-600 mb-4">{svc.desc}</p>
-              <div className="mt-4">
-                <Link
-                  href="/coaching"
-                  className="inline-flex items-center text-[#2F8E91] font-semibold hover:underline"
-                >
-                  See Programs & Packages →
-                </Link>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* ========================= MISSION & VISION ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#DADDE2] to-[#E2E3E7] text-center"
-      >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-8">
-          Mission & Vision
-        </motion.h2>
-
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-          <motion.div variants={fadeUp} className="p-6 bg-white rounded-2xl shadow-md">
-            <h4 className="font-semibold text-[#7F6BC9] mb-2">Mission</h4>
-            <p className="text-gray-700">We grow leaders who elevate people and performance without compromise.</p>
-          </motion.div>
-
-          <motion.div variants={fadeUp} className="p-6 bg-white rounded-2xl shadow-md">
-            <h4 className="font-semibold text-[#7F6BC9] mb-2">Vision</h4>
-            <p className="text-gray-700">A world where leadership lift, where people thrive, results follow, and everyone wins.</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* ========================= PRINCIPLES ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white"
-      >
-        <motion.div variants={fadeUp} className="max-w-3xl mx-auto space-y-3">
-          <p className="text-lg">Grace without grit is weakness.</p>
-          <p className="text-lg">Grit without grace is harmful.</p>
-          <p className="text-lg">Growth without both is impossible.</p>
-          <p className="font-semibold mt-4 text-xl">
-            Leadership demands all three grace to understand, grit to act, and growth to transform.
-          </p>
+        <motion.div variants={fadeUp} className="p-6 bg-white/10 rounded-xl flex flex-col items-center justify-center text-center hover:bg-white/20 transition">
+          <div className="text-4xl mb-2">🔥</div>
+          <div className="font-semibold text-xl">High</div>
+          <div className="text-sm text-gray-300">Burnout</div>
         </motion.div>
-      </motion.section>
+        <motion.div variants={fadeUp} className="p-6 bg-white/10 rounded-xl flex flex-col items-center justify-center text-center hover:bg-white/20 transition">
+          <div className="text-4xl mb-2">💬</div>
+          <div className="font-semibold text-xl">Low</div>
+          <div className="text-sm text-gray-300">Communication</div>
+        </motion.div>
+      </div>
+    </motion.div>
 
-      {/* ========================= VALUES ========================= */}
+    {/* Right Column: How We Diagnose */}
+    <motion.div variants={fadeUp} className="p-8 rounded-2xl bg-white/10 border border-white/20 shadow-lg">
+      <h3 className="text-xl md:text-2xl font-semibold mb-4">How we diagnose the problem</h3>
+      <ul className="list-disc list-inside space-y-2 text-gray-300">
+        <li>Assess manager behaviors and team sentiment</li>
+        <li>Identify breakdowns in feedback and accountability</li>
+        <li>Map people risks to business outcomes</li>
+      </ul>
+    </motion.div>
+
+  </div>
+</motion.section>
+
+      
+
+      {/* ================= THE GROWTH SYSTEM ================= */}
       <motion.section
+        className="py-20 px-6 md:px-16 bg-gray-50 text-gray-800"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={container}
-        className="py-24 px-6 md:px-16 text-center bg-gradient-to-br from-[#DADDE2] to-[#E5E8ED]"
       >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-6">
-          Our Values
-        </motion.h2>
-
-        <motion.p variants={fadeUp} className="max-w-3xl mx-auto text-gray-700 mb-10">
-          Our values ensure clients don’t just learn leadership, they feel the impact of it. We leverage
-          technology to accelerate growth, never to replace the human experience.
-        </motion.p>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            { title: "Client Dedication", desc: "We meet every leader and team where they are and stay until results are real." },
-            { title: "Courage", desc: "Empathy + truth. We say what matters and act on it." },
-            { title: "Ownership", desc: "No excuses. We deliver measurable outcomes." },
-            { title: "Clarity", desc: "We simplify complexity and align action to priorities." },
-            { title: "Growth", desc: "Humility, discipline, and habits that sustain success." },
-          ].map((val) => (
-            <motion.div
-              key={val.title}
-              variants={fadeUp}
-              className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 border-t-4 border-[#7F6BC9]"
-            >
-              <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">{val.title}</h3>
-              <p className="text-gray-600">{val.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* ========================= TESTIMONIALS ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-24 px-6 md:px-16 text-center bg-gradient-to-br from-[#E5E8ED] to-[#DADDE2]"
-      >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-12">
-          What Leaders Are Saying
-        </motion.h2>
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {[
-            {
-              quote:
-                "Simply brilliant. The most impactful leadership system I’ve ever experienced.",
-              author: "VP, Human Resources (Consumer Electronics)",
-            },
-            {
-              quote:
-                "The GROWTH™ framework transformed how I coach. My team now has clarity, accountability, and consistently stronger performance.",
-              author: "Partner, Sales Organization (PE-Backed Tech Company)",
-            },
-            {
-              quote:
-                "OnTheGrow training is practical, energizing, and real. I walked out knowing I could lead better that same day.",
-              author: "Territory Sales Manager (National Field Team)",
-            },
-            {
-              quote:
-                "OnTheGrow helped us build scalable leadership capability and stronger cross-functional execution. We’re moving faster — with more trust.",
-              author: "Senior Leader, Talent & Culture (PE-Backed Company)",
-            },
-            {
-              quote:
-                "Our managers finally have a repeatable way to coach. We’ve seen immediate improvements in decision-making, feedback, and accountability.",
-              author: "VP, Human Resources (Multi-Site Organization)",
-            },
-          ].map((t, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileHover={{ scale: 1.05, rotate: [-0.5, 0.5, 0], transition: { duration: 0.4 } }}
-              className={`relative p-8 rounded-2xl shadow-xl transition-all duration-300 border-t-4 border-[#7F6BC9] bg-white/90 backdrop-blur-sm ${
-                i === 0 ? "md:col-span-2 lg:col-span-3 bg-gradient-to-r from-[#7F6BC9]/10 to-[#2F8E91]/10" : ""
-              }`}
-            >
-              <motion.div
-                animate={{
-                  opacity: [0.9, 1, 0.9],
-                  y: [0, -4, 0],
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
-              >
-                <p className="italic text-gray-700 text-lg mb-4 leading-relaxed">“{t.quote}”</p>
-                <p className="font-semibold text-[#2F8E91]">{t.author}</p>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <motion.div variants={fadeUp}>
+            <h2 className="text-3xl font-bold mb-4">The GROWTH System</h2>
+            <p className="text-gray-700 mb-6">
+              A simple, memorable framework that brings humanity, accountability, and continuous
+              improvement into every leader’s day.
+            </p>
+            <div className="space-y-4">
+              <motion.div variants={fadeUp} className="p-4 bg-green-50 rounded-lg">
+                <h4 className="font-semibold">Grace</h4>
+                <p className="text-sm text-gray-700">Humanity — truth with kindness.</p>
               </motion.div>
-            </motion.div>
-          ))}
+              <motion.div variants={fadeUp} className="p-4 bg-yellow-50 rounded-lg">
+                <h4 className="font-semibold">Grit</h4>
+                <p className="text-sm text-gray-700">Accountability and follow-through.</p>
+              </motion.div>
+              <motion.div variants={fadeUp} className="p-4 bg-purple-50 rounded-lg">
+                <h4 className="font-semibold">Growth</h4>
+                <p className="text-sm text-gray-700">Connection, clarity, and continuous improvement.</p>
+              </motion.div>
+            </div>
+            <div className="mt-6">
+              <Link
+                href="/growth"
+                className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-[#7F6BC9] to-[#00FF7A] text-black font-semibold"
+              >
+                Explore the GROWTH™ Model
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="relative flex items-center justify-center"
+          >
+            <motion.svg
+              viewBox="0 0 240 240"
+              className="w-72 h-72"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <defs>
+                <linearGradient id="gradTriangle" x1="0" x2="1">
+                  <stop offset="0%" stopColor="#7F6BC9" />
+                  <stop offset="100%" stopColor="#00FF7A" />
+                </linearGradient>
+              </defs>
+              <motion.polygon
+                points="120,20 40,200 200,200"
+                fill="none"
+                stroke="url(#gradTriangle)"
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.2 }}
+              />
+              <motion.circle cx="120" cy="20" r="6" fill="#7F6BC9" whileHover={{ scale: 1.5, fill: "#00FF7A" }} />
+              <motion.circle cx="40" cy="200" r="6" fill="#FACC15" whileHover={{ scale: 1.5, fill: "#7F6BC9" }} />
+              <motion.circle cx="200" cy="200" r="6" fill="#00FF7A" whileHover={{ scale: 1.5, fill: "#FACC15" }} />
+              <motion.text x="120" y="10" fontSize="12" textAnchor="middle" fill="#1f2937" whileHover={{ scale: 1.2, fill: "#7F6BC9" }}>Grace</motion.text>
+              <motion.text x="40" y="220" fontSize="12" textAnchor="middle" fill="#1f2937" whileHover={{ scale: 1.2, fill: "#FACC15" }}>Grit</motion.text>
+              <motion.text x="200" y="220" fontSize="12" textAnchor="middle" fill="#1f2937" whileHover={{ scale: 1.2, fill: "#00FF7A" }}>Growth</motion.text>
+            </motion.svg>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* ========================= RESULTS TEASER ========================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={container}
-        className="py-20 px-6 md:px-16 text-center bg-gradient-to-br from-[#DADDE2] to-[#E2E3E7]"
+      {/* ========================= TESTIMONIALS MARQUEE ========================= */}
+<section className="relative bg-gray-900 text-white py-12 overflow-hidden">
+  <div className="max-w-6xl mx-auto px-6 relative">
+    <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">What Leaders Are Saying</h3>
+
+    {/* Moving testimonials */}
+    <div className="overflow-hidden">
+      <motion.div
+        className="flex gap-12 whitespace-nowrap"
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
       >
-        <motion.h2 variants={fadeUp} className="text-3xl font-bold text-[#2F8E91] mb-6">
-          When leaders grow, everyone wins.
-        </motion.h2>
+        {[
+          "Simply brilliant. The most impactful leadership system I’ve ever experienced. — VP, Human Resources (Consumer Electronics)",
+          "The GROWTH™ framework transformed how I coach. My team now has clarity, accountability, and consistently stronger performance. — Partner, Sales Organization (PE-Backed Tech Company)",
+          "OnTheGrow training is practical, energizing, and real. I walked out knowing I could lead better that same day. — Territory Sales Manager (National Field Team)",
+          "OnTheGrow helped us build scalable leadership capability and stronger cross-functional execution. We’re moving faster — with more trust. — Senior Leader, Talent & Culture (PE-Backed Company)",
+          "Our managers finally have a repeatable way to coach. We’ve seen immediate improvements in decision-making, feedback, and accountability. — VP, Human Resources (Multi-Site Organization)",
+        ].map((quote, i) => (
+          <div
+            key={i}
+            className="inline-block px-6 py-4 text-lg md:text-xl font-medium border-l border-white/20 last:border-r border-white/20"
+          >
+            {quote}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-        <motion.p variants={fadeUp} className="max-w-3xl mx-auto text-gray-700 mb-8">
-          See how we’ve helped organizations reduce turnover, increase engagement, and scale healthy performance.
-        </motion.p>
 
-        <motion.div variants={fadeUp}>
-          <Link href="/results" className="text-[#2F8E91] font-semibold hover:underline">
-            View Results →
-          </Link>
-        </motion.div>
-      </motion.section>
+{/* ================= OFFERINGS ================= */}
+<motion.section
+  className="py-20 px-6 md:px-16 bg-gray-100 text-gray-800"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={container}
+>
+  <div className="max-w-6xl mx-auto text-center mb-10">
+    <motion.h2 variants={fadeUp} className="text-3xl font-bold">
+      Offerings
+    </motion.h2>
+    <motion.p variants={fadeUp} className="text-gray-700 mt-3">
+      Practical programs and tools that make leadership repeatable, measurable, and human.
+    </motion.p>
+  </div>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+    {[
+      { title: 'Leadership Development Programs', desc: 'Custom cohorts that build internal capability and coaching muscle.', icon: '📈' },
+      { title: 'Executive Coaching', desc: 'One-to-one coaching for senior leaders navigating scale and change.', icon: '🤝' },
+      { title: 'OnTheGrow.AI', desc: '24/7 AI Leadership Coach that supports daily learning and behavior change.', icon: '🤖' },
+      { title: 'Team Workshops & Speaking', desc: 'Interactive sessions to align teams and land new behaviors.', icon: '🗣️' },
+      { title: 'Fractional People Leadership', desc: 'Interim leaders and people ops capacity for scaling orgs.', icon: '👥' },
+    ].map((o) => (
+      <motion.article
+        key={o.title}
+        variants={fadeUp}
+        whileHover={{ scale: 1.05 }}
+        className="p-6 rounded-2xl bg-white shadow-sm hover:shadow-lg transition-transform duration-300 cursor-pointer group flex flex-col justify-between"
+      >
+        <div>
+          <div className="h-12 w-12 rounded-md bg-gradient-to-br from-purple-300 to-green-300 flex items-center justify-center mb-4 text-xl">
+            {o.icon}
+          </div>
+          <h4 className="font-semibold text-lg mb-2 relative group-hover:after:w-full after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-gradient-to-r after:from-purple-500 after:to-green-500 after:w-0 after:transition-all after:duration-300">
+            {o.title}
+          </h4>
+          <p className="text-gray-700 text-sm mb-4 group-hover:translate-y-[-2px] transition-all duration-300">
+            {o.desc}
+          </p>
+        </div>
+        <Link
+          href="/coaching"
+          className="mt-4 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-green-400 text-white font-semibold text-sm text-center hover:scale-105 transform transition"
+        >
+          Learn More
+        </Link>
+      </motion.article>
+    ))}
+  </div>
+  <motion.div variants={fadeUp} className="max-w-6xl mx-auto text-center mt-8">
+    <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-800 text-sm">
+      Powered by Partnership Coaching™
+    </span>
+  </motion.div>
+</motion.section>
 
-      {/* ========================= CLOSING CTA ========================= */}
-      <section className="relative py-24 px-6 md:px-16 text-center bg-gradient-to-r from-[#7F6BC9] to-[#2F8E91] text-white overflow-hidden">
-        <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-56 h-56 bg-[#FFFFFF22] rounded-full blur-3xl" />
 
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={container} className="relative z-10">
-          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-            Ready to build the kind of leadership the world deserves?
-          </motion.h2>
+      {/* ========================= HIGHLIGHT MARQUEE ========================= */}
+<section className="relative bg-gray-900 text-white py-8 overflow-hidden">
+  <div className="max-w-6xl mx-auto px-6 relative">
+    <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Key Highlights</h3>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="https://calendly.com/liz-onthegrowleadership/30min"
-              target="_blank"
-              className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transform-gpu hover:-translate-y-1 transition"
-            >
-              Book a Discovery Call
-            </Link>
+    {/* Moving highlights */}
+    <div className="overflow-hidden">
+      <motion.div
+        className="flex gap-12 whitespace-nowrap"
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+      >
+        {[
+          "33.7% → 22.4% Reduced Turnover",
+          "500 → 2,500+ Scaled Organizations",
+          "Award-winning HR Teams & Integrations",
+          "Successful M&A Integrations",
+          "Practical tools that scale leadership",
+          "Supports daily behavior change",
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="inline-block px-6 py-4 text-lg md:text-xl font-semibold border-l border-white/20 last:border-r border-white/20"
+          >
+            {item}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-            <Link
-              href="/resources/GROWTH-Model.pdf"
-              download="GROWTH-Model.pdf"
-              className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7F6BC9] transition shadow-md hover:-translate-y-1 transform-gpu"
-            >
-              Download the GROWTH™ Guide
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
+
+{/* ================= WHY OnTheGrow WORKS ================= */}
+<motion.section
+  className="py-20 px-6 md:px-16 bg-gray-50 text-gray-800"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={container}
+>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    {/* Left Column */}
+    <motion.div variants={fadeUp}>
+      <h2 className="text-3xl font-bold mb-4">Why OnTheGrow Works</h2>
+      <p className="text-gray-700 mb-6">
+        Led by Liz Corey — CHRO, Forbes HR Council Member, Maxwell Leadership Certified Coach.
+        We combine deep HR experience with coaching discipline and data-informed practice.
+      </p>
+
+      {/* Badges */}
+      <div className="flex gap-4 mb-6 flex-wrap">
+        <img src="/maxwellBadge.jpeg" alt="Maxwell Leadership Certified Coach" className="h-12"/>
+        <img src="/forbesBadge.png" alt="Forbes HR Council Member" className="h-12"/>
+      </div>
+
+      {/* Metrics Cards */}
+      <div className="grid grid-cols-2 gap-4">
+        <div className="p-6 bg-green-50 rounded-lg text-center hover:shadow-lg transition">
+          <div className="text-2xl font-semibold">33.7% → 22.4%</div>
+          <div className="text-sm text-gray-700">Reduced turnover</div>
+        </div>
+        <div className="p-6 bg-purple-50 rounded-lg text-center hover:shadow-lg transition">
+          <div className="text-2xl font-semibold">500 → 2,500+</div>
+          <div className="text-sm text-gray-700">Scaled organizations</div>
+        </div>
+        <div className="p-6 bg-yellow-50 rounded-lg text-center hover:shadow-lg transition">
+          <div className="text-2xl font-semibold">Award-winning</div>
+          <div className="text-sm text-gray-700">Built HR teams & integrations</div>
+        </div>
+        <div className="p-6 bg-blue-50 rounded-lg text-center hover:shadow-lg transition">
+          <div className="text-2xl font-semibold">M&A</div>
+          <div className="text-sm text-gray-700">Successful integrations</div>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Right Column: Case Studies */}
+    <motion.div variants={fadeUp} className="p-6 rounded-2xl bg-white shadow-md border border-gray-200">
+      <h3 className="font-semibold mb-3">Case Studies</h3>
+      <div className="space-y-4">
+        <details className="bg-gray-100 p-3 rounded-lg">
+          <summary className="font-semibold cursor-pointer">Reduced turnover & built leadership capacity</summary>
+          <p className="text-sm text-gray-700 mt-2">
+            We partnered with a PE-backed org to redesign frontline management, reducing voluntary turnover by 11.3 percentage points and creating an internal leadership academy.
+          </p>
+        </details>
+        <details className="bg-gray-100 p-3 rounded-lg">
+          <summary className="font-semibold cursor-pointer">Scaled HR & M&A integration</summary>
+          <p className="text-sm text-gray-700 mt-2">
+            Delivered practical playbooks and coaching to scale HR from 500 to 2,500+ employees while navigating two acquisitions.
+          </p>
+        </details>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
+{/* ================= PARTNERSHIP COACHING ================= */}
+<motion.section
+  className="py-20 px-6 md:px-16 bg-gradient-to-br from-teal-500 via-purple-500 to-purple-700 text-white"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={container}
+>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    {/* Left Column: Text */}
+    <motion.div variants={fadeUp}>
+      <h2 className="text-3xl font-bold mb-4">Partnership Coaching™</h2>
+      <p className="mb-4">
+        In 2025, OnTheGrow Leadership acquired Partnership Coaching™, created by Rebecca Bradley.
+        Our approach focuses on embedding daily coaching habits into leaders’ routines.
+      </p>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Practical tools that scale leadership</li>
+        <li>Supports daily behavior change</li>
+        <li>Data-informed, human-centered</li>
+      </ul>
+      <Link
+        href="https://www.partnershipcoaching.com/"
+        className="inline-flex items-center mt-6 px-4 py-2 rounded-full bg-white text-gray-800 font-semibold hover:scale-[1.02] transition"
+      >
+        Learn More
+      </Link>
+    </motion.div>
+
+    {/* Right Column: Image */}
+    <motion.div variants={fadeUp}>
+      <img
+        src="/partnershipCoaching.png"
+        alt="Partnership Coaching"
+        className="w-60 max-w-lg mx-auto rounded-xl shadow-lg"
+      />
+    </motion.div>
+  </div>
+</motion.section>
+
 
       <Footer />
     </main>

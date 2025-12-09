@@ -5,6 +5,23 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Contact() {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(e.currentTarget));
+
+    const res = await fetch("/apis/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+    alert(result.message);
+  };
+
+
   return (
     <main className="bg-[#F1F2F4] text-gray-800 overflow-hidden">
       <Navbar />
@@ -48,6 +65,7 @@ export default function Contact() {
           action="#"
           method="POST"
           className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[#2F8E91] hover:shadow-2xl transition-all"
+          onSubmit={handleSubmit}
         >
           <input
             type="text"

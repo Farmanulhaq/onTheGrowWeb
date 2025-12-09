@@ -6,14 +6,30 @@ import Footer from "../components/footer";
 import Link from "next/link";
 
 export default function OnTheGrowAI() {
+  const benefits = [
+    {
+      title: "Personalized Prompts",
+      desc: "Daily/weekly nudges aligned to your leadership goals.",
+    },
+    {
+      title: "Reflection & Insight",
+      desc: "Capture learning while it’s fresh and actionable.",
+    },
+    {
+      title: "Action & Tracking",
+      desc: "Convert intent into habits and measurable progress.",
+    },
+  ];
+
   return (
     <main className="bg-[#F1F2F4] text-gray-800 overflow-hidden">
       <Navbar />
 
       {/* ========================= HERO ========================= */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-[85vh] px-6 pt-24 bg-gradient-to-br from-[#2F8E91] via-[#4A8FB5] to-[#7F6BC9] text-white overflow-hidden">
+      <section className="relative flex flex-col md:flex-row items-center justify-center text-left min-h-[90vh] px-50 pt-24 bg-gradient-to-br from-[#2F8E91] via-[#4A8FB5] to-[#7F6BC9] text-white overflow-hidden">
+        {/* Floating gradients */}
         <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -25, 0] }}
+          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-16 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"
         />
@@ -23,42 +39,45 @@ export default function OnTheGrowAI() {
           className="absolute bottom-12 right-10 w-80 h-80 bg-white/5 rounded-full blur-3xl"
         />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-5xl font-bold max-w-3xl leading-tight z-10"
-        >
-          Your intelligent coaching companion human at the core.
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="text-lg md:text-xl mt-6 max-w-3xl text-gray-100"
-        >
-          AI-enabled prompts, reflections, and tracking that reinforce growth between sessions.
-        </motion.p>
-
+        {/* Left Column: Text */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-10"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 max-w-xl md:max-w-2xl"
         >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+            Meet OnTheGrow.AI your 24/7 AI leadership coach.
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-100 mb-6">
+            Built from the <span className="font-semibold">GROWTH™ System</span>, customized communication templates, coaching scripts, and instant leadership guidance.
+          </p>
           <Link
             href="https://onthegrow.ai/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
+            className="inline-block bg-white text-[#2F8E91] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-md"
           >
             Request a Demo
           </Link>
         </motion.div>
+
+        {/* Right Column: Tool Mockup */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="mt-12 md:mt-0 md:ml-12 flex-1 flex justify-center items-center"
+        >
+          <img
+            src="/onthegrow.svg" // replace with actual tool mockup
+            alt="OnTheGrow.AI Mockup"
+            className="w-full max-w-lg rounded-xl shadow-2xl"
+          />
+        </motion.div>
       </section>
 
-       {/* ========================= WHAT IT DOES ========================= */}
+      {/* ========================= BENEFITS ========================= */}
       <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#E2E3E7] to-[#DADDE2] text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -67,44 +86,23 @@ export default function OnTheGrowAI() {
           viewport={{ once: true }}
           className="text-3xl font-bold text-[#2F8E91] mb-12"
         >
-          What It Does
+          How It Helps You Grow
         </motion.h2>
 
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
-          {/* Top row: 3 cards */}
-          <div className="grid md:grid-cols-3 gap-8 w-full mb-10">
-            {[
-              ["Personalized Prompts", "Daily/weekly nudges aligned to goals."],
-              ["Reflection & Insight", "Capture learning while it’s fresh."],
-              ["Action & Tracking", "Convert intent into habits and measurable progress."],
-            ].map(([title, desc], i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9]"
-              >
-                <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">{title}</h3>
-                <p className="text-gray-600">{desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom row: 1 centered card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9] w-full md:w-1/3"
-          >
-            <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3">Coach Connection</h3>
-            <p className="text-gray-600">
-              Keep momentum between sessions — without replacing the relationship.
-            </p>
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {benefits.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 bg-[#EDEFF2] rounded-2xl shadow-md hover:shadow-xl transition-all border-t-4 border-[#7F6BC9] hover:-translate-y-2 hover:scale-[1.02] group"
+            >
+              <h3 className="text-xl font-semibold text-[#7F6BC9] mb-3 transition-colors duration-300 group-hover:text-[#00FF7A]">{item.title}</h3>
+              <p className="text-gray-700 text-sm md:text-base mt-2 transition-all duration-300 group-hover:text-gray-900">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 

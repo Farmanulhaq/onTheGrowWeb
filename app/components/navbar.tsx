@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "../resources/logo.png";
+import Logo from "../resources/logo2.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -29,7 +29,7 @@ export default function Navbar()
 
         {/* ================================================== Logo ================================================== */}
         <Link href="/">
-          <Image src={Logo} alt="OnTheGrow.AI Logo" width={250} height={60} />
+          <Image src={Logo} alt="OnTheGrow.AI Logo" width={150} height={60} />
         </Link>
 
         {/* ================================================== Desktop LINKS ================================================== */}

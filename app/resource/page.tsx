@@ -9,7 +9,7 @@ export default function Resource() {
     {
       title: "GROWTH™ Model Guide",
       desc: "A step-by-step framework for turning insight into sustained growth.",
-      link: "/resources/Growth-Model.pdf",
+      link: "/Growth-Model.pdf",
       file: "Growth-Model.pdf",
       available: true,
     },
@@ -133,7 +133,7 @@ export default function Resource() {
         </motion.p>
 
         <a
-          href="/resources/GROWTH-Model.pdf"
+          href="/GROWTH-Model.pdf"
           download="GROWTH-Model.pdf"
           className="inline-block bg-white text-[#2F8E91] px-8 py-3.5 rounded-full font-semibold hover:bg-[#F4F5F7] transition shadow-md"
         >

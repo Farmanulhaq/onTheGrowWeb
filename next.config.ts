@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-   eslint: {
-    // ✅ Ignore ESLint errors during build
+  output: "export", // 👈 Enables static export
+  eslint: {
     ignoreDuringBuilds: true,
+  },
+  images: {
+    unoptimized: true, // 👈 Needed for static export if you use next/image
   },
 };
 
